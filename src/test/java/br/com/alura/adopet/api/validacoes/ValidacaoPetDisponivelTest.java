@@ -17,6 +17,7 @@ class ValidacaoPetDisponivelTest {
 
     @InjectMocks
     private ValidacaoPetDisponivel validacao;
+
     @Mock
     private PetRepository petRepository;
 
