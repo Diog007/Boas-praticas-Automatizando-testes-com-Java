@@ -1,43 +1,19 @@
-## 💻 Sobre o projeto
+# CURSO ALURA: Boas práticas de programação: automatizando testes com Java
 
-Adopet é um site fictício de adoção de pets, com funcionalidades para cadastro de tutores, de abrigos e de pets, além de solicitação de adoções. Nesse repositório o projeto será uma API Rest em Java do Adopet.
+Este repositório contém os códigos e documentação referentes ao curso de Testes Automatizados em Java.
 
----
+## Módulo 1: Introdução ao JUnit
+No primeiro módulo do curso, aprendemos a utilizar o JUnit para criar testes automatizados. Criamos testes para a classe  “CalculadoraProbabilidadeAdocao",  no método calcular desta classe. Primeiramente, criamos uma classe de teste chamada “CalculadoraProbabilidadeAdocaoTest” e implementamos o primeiro cenário de teste com a anotação “@Test” da biblioteca JUnit e descobrir que é uma biblioteca padrao do java. Escrevemos o cenário de teste e verificamos que ele retornou a probabilidade esperada. No entanto, no segundo cenário de teste, aprendemos a importância dos testes automatizados, o teste falhou e não retornou a probabilidade esperada, detectando assim um erro em no código da classe CalculadoraProbabilidadeAdocao.
 
-## ⚙️ Funcionalidades
+## Módulo 2: Boas praticas e pradroes de Testes
+No segundo módulo do curso, encontramos um erro no código da classe CalculadoraProbabilidadeAdoção durante a realização dos testes unitários do cenário 02. O problema era que ambos os blocos condicionais estavam sendo executados. Para corrigir isso, adicionamos um "else" antes do "if". Além disso, aplicamos boas práticas na nomenclatura dos métodos de teste para deixar claro e explicito o objetivo de cada metodo de teste. Aprendemos também sobre a anotacao "@DisplayName" para nomear os métodos de forma explícita e concisa. Nesta etapa do curso, aplicamos o padrão AAA ou Triple A, que significa Arrange (Preparar), Act (Agir) e Assert (Verificar), entendendo cada etapa desse padrão de testes. Também exploramos outro padrão de testes, o GWT.
 
-- [x] Cadastro/atualização de tutores;
-- [x] Cadastro de abrigos;
-- [x] Cadastro de pets do abrigo;
-- [x] Listagem de pets disponíveis para adoção;
-- [x] Solicitação de adoção;
-- [x] Aprovação/reprovação de adoção;
+## Módulo 3: Introducao ao Mockito
+No terceiro módulo do curso, testamos a classe 'ValidacaoPetDisponivel', que é uma regra de negócio. Ao tentarmos aplicar testes unitários utilizando apenas o JUnit, enfrentamos uma falha. Isso ocorreu porque ao contrário da classe 'CalculadoraProbabilidadeAdocao', a 'ValidacaoPetDisponivel' depende de outras classes, ou seja, possui injeção de dependência anotada com '@Autowired'. Nos testes, não é boa pratica a integração com outras classes do projeto, como acessar o repositório real do banco de dados. Assim, aprendemos a facilidade e a importância de utilizar a biblioteca Mockito para simular outras classes e comportamentos, injetando essas classes como atributos anotados com '@Mock'. Isso nos permite testar apenas a classe de forma isolada, sem depender de outras classes.
 
----
+## Módulo 4: Utilizando funcionalidades do Mockito
+No quarto módulo do curso, testamos o método principal da API, que é o método de solicitação de adoção. Criamos o primeiro cenário de teste para verificar se o método estava salvando corretamente. E aprendemos uma funcionalidade muito interessante do Mockito chamada "ArgumentCaptor". Esta ferramenta capturar o objeto atribuído à classe que desejamos testar usando Mockito. E no caso utilizamos o ArgumentCaptor para capturar o objeto “adoção” salvado pelo método, o que nos possibilitou verificar se ele foi salvo corretamente e se corresponde aos valores dos objetos simulados pelo mockito. Ja no segundo cenário de teste, o objetivo era validar se os validadores estavam sendo chamados corretamente. E aprendemos sobre outra anotação importante do Mockito, o @Spy. Essa anotação permite voce monitorar chamadas de métodos e instanciar um objeto real, podendo voce definir um comportamento específico. Dessa forma, podemos verificar se o método "validar" da interface está sendo chamado corretamente.
 
-## 🎨 Layout
+## Módulo 5: Testando Controllers da API
+No quinto módulo do curso, testamos a classe de controller do principal método da API, que é o de solicitar uma adoção. Diferentemente dos testes anteriores, utilizamos a anotação @SpringBootTest na classe de teste para que o Spring possa carregar o contexto da aplicação, permitindo o uso do @Autowired. Além disso, também utilizamos o @AutoConfigureMockMvc, o qual configura o @MockMvc para ser injetado e permitir simulações de requisições HTTP ao controlador. No primeiro cenário de teste, nosso objetivo era verificar se o controller estava retornando o erro 400 corretamente, utilizamos a injeção do MockMvc para simular uma requisição HTTP, e o teste passou, retornando o erro 400 esperado. Porém, no segundo cenário de teste, esperávamos um retorno de status 200 e percebemos que ele estava utilizando o banco de dados real, fazendo com que torne-se teste de integração, o que não há intenção. Para resolver isso, usamos a anotação @MockBean para simular a interação com o banco de dados, tornando o teste isolado. Dessa forma, conseguimos testar o método de maneira isolada e obter o resultado esperado, garantindo que o método passe nos testes.
 
-O projeto desse repositório é apenas a API Backend, mas existe um figma com o layout que está disponível neste link: <a href="https://www.figma.com/file/TlfkDoIu8uyjZNla1T8TpH?embed_host=notion&kind=&node-id=518%3A11&t=esSUkfGQEWUeUASj-1&type=design&viewer=1">Layout no Figma</a>
-
----
-
-## 🛠 Tecnologias
-
-As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do projeto:
-
-- **[Java 17](https://www.oracle.com/java)**
-- **[Spring Boot 3](https://spring.io/projects/spring-boot)**
-- **[Maven](https://maven.apache.org)**
-- **[MySQL](https://www.mysql.com)**
-- **[Hibernate](https://hibernate.org)**
-- **[Flyway](https://flywaydb.org)**
-
----
-
-## 📝 Licença
-
-O projeto desse repositório foi desenvolvido por [Alura](https://www.alura.com.br) e utilizado nos cursos de boas práticas de programação com Java.
-
-Instrutor: [Rodrigo Ferreira](https://cursos.alura.com.br/user/rodrigo-ferreira)
-
----
